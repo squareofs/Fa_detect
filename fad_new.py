@@ -45,6 +45,11 @@ def training():
     cv2.destroyAllWindows()
     cv2.waitKey(1)
     cv2.destroyAllWindows()
+
+    print("all the faces ")
+    print(faces)
+    print("\n \n all the labels")
+    print(label)
     return faces, label
 
 #detecting function
@@ -59,3 +64,7 @@ def detect_face(img):
 
 
 faces, label= training()
+print("\n \n all the faces after function")
+print(faces)
+print("all the labels after the  function")
+print(label)
