@@ -5,52 +5,6 @@ subjects=["","sagar", "Shashank"]
 print("Preparing image data ")
 
 
-#training function
-def training():
-    faces=[]
-    label=[]
-    all_image1_list=os.listdir("images_data/sagar")
-    print("Sagar all images ", all_image1_list)
-    for image_name in all_image1_list:
-        if image_name.startswith("."):
-            continue;
-        image_path = "images_data/sagar/" + image_name
-        image = cv2.imread(image_path)
-        cv2.imshow("Saving image data", cv2.resize(image, (400, 500)))
-        cv2.waitKey(100)
-        face, rect = detect_face(image)
-        if face is not None:
-            faces.append(face)
-            label.append(label)
-
-    cv2.destroyAllWindows()
-    cv2.waitKey(1)
-    cv2.destroyAllWindows()
-
-
-
-    all_image2_list = os.listdir("images_data/shashank")
-    print("Shashank all images ", all_image2_list)
-    for image_name in all_image2_list:
-        if image_name.startswith("."):
-            continue;
-        image_path = "images_data/shashank/" + image_name
-        image = cv2.imread(image_path)
-        cv2.imshow("Saving image data", cv2.resize(image, (400, 500)))
-        cv2.waitKey(100)
-        face, rect = detect_face(image)
-        if face is not None:
-            faces.append(face)
-            label.append(label)
-    cv2.destroyAllWindows()
-    cv2.waitKey(1)
-    cv2.destroyAllWindows()
-
-    print("all the faces ")
-    print(faces)
-    print("\n \n all the labels")
-    print(label)
-    return faces, label
 
 #detecting function
 def detect_face(img):
@@ -63,8 +17,47 @@ def detect_face(img):
     return gray[y:y + w, x:x + h], faces[0]
 
 
-faces, label= training()
-print("\n \n all the faces after function")
+
+faces=[]
+label=[]
+all_image1_list=os.listdir("images_data/sagar")
+print("Sagar all images ", all_image1_list)
+for image_name in all_image1_list:
+    if image_name.startswith("."):
+        continue;
+    image_path = "images_data/sagar/" + image_name
+    image = cv2.imread(image_path)
+    cv2.imshow("Saving image data", cv2.resize(image, (400, 500)))
+    cv2.waitKey(100)
+    face, rect = detect_face(image)
+    if face is not None:
+        faces.append(face)
+        label.append(label)
+
+cv2.destroyAllWindows()
+cv2.waitKey(1)
+cv2.destroyAllWindows()
+
+
+
+all_image2_list = os.listdir("images_data/shashank")
+print("Shashank all images ", all_image2_list)
+for image_name in all_image2_list:
+    if image_name.startswith("."):
+        continue;
+    image_path = "images_data/shashank/" + image_name
+    image = cv2.imread(image_path)
+    cv2.imshow("Saving image data", cv2.resize(image, (400, 500)))
+    cv2.waitKey(100)
+    face, rect = detect_face(image)
+    if face is not None:
+        faces.append(face)
+        label.append(label)
+cv2.destroyAllWindows()
+cv2.waitKey(1)
+cv2.destroyAllWindows()
+
+print("all the faces ")
 print(faces)
-print("all the labels after the  function")
+print("\n \n all the labels")
 print(label)
